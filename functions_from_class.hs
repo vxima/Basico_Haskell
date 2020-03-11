@@ -4,6 +4,12 @@
 fatorial t 
  | t==0 = 1 --se for 0 vai retornar 1
  | otherwise = t*fatorial (t-1) --se for diferente vai retornar x* o fatorial de x-1
+ 
+ --forma alternativa de fatorial
+ 
+fat :: Int -> Int 
+fat 0 = 1 
+fat n = n*fat(n-1)
 
 allEqual a b c = (a==b) && (b==c)
 --all4equal
@@ -22,5 +28,4 @@ sumList soma
 
 double :: [int] -> [int]
 double [] = []
-double [x] = 2*x
-double (x:xs) = [2*x] : double xs 
+double (x:xs) = 2*x : double (xs)  -- dobra o valor, concatena na lista e chama recursivamente para o tail da lista
