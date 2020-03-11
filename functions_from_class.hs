@@ -29,3 +29,25 @@ sumList soma
 double :: [int] -> [int]
 double [] = []
 double (x:xs) = 2*x : double (xs)  -- dobra o valor, concatena na lista e chama recursivamente para o tail da lista
+
+member :: [Int] -> Int -> Bool
+member [] y = False
+member (x:xs) y = if (y==x) then True else member(xs) (y)
+
+digits :: String -> String 
+digits [] = []
+digits (x:xs) = if(x >= '0' && x <= '9') then x : digits(xs) else digits(xs)
+
+sumPairs :: [Int] ->[Int] ->[Int]
+sumPairs [] [] = [] -- soma duas listas vazias , retorna outra vazia
+sumPairs [] (y:ys) = (y:ys)
+sumPairs (x:xs) [] = (x:xs)
+sumPairs (x:xs) (y:ys) = x+y : sumPairs (xs) (ys) -- soma as cabeças e faz uma chamada recursiva com o resto das listas 
+
+
+maiorLista :: [Int] -> Int 
+maiorLista [] = minBound :: Int
+maiorLista [x] = x
+maiorLista (x:xs)
+ | x> maiorLista xs = x
+ | otherwise        = maiorLista xs
