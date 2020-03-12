@@ -51,3 +51,9 @@ maiorLista [x] = x
 maiorLista (x:xs)
  | x> maiorLista xs = x
  | otherwise        = maiorLista xs
+
+baskara :: (Double , Double , Double) -> [Double]
+baskara ( a , b, c ) 
+ | (b*b) > 4.0*a*c = [((-b + sqrt(b*b - 4*a*c))/(2*a))] ++ [((-b - sqrt(b*b - 4*a*c))/2*a)]
+ | (b*b) == 4.0*a*c = [((-b + sqrt(b*b - 4*a*c))/(2*a))] ++ [((-b - sqrt(b*b - 4*a*c))/(2*a))]
+ | otherwise = []
